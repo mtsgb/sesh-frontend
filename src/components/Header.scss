@@ -1,0 +1,70 @@
+// .logo {
+//   color: #fff; // pode mudar conforme o fundo da página
+//   font-family: 'Poppins', 'Montserrat', sans-serif;
+//   font-weight: 600;
+//   position: relative;
+//   display: inline-block;
+//   line-height: 1;
+//   overflow: hidden;
+//   color: aqua;
+
+//   .top {
+//     display: block;
+//     font-size: 4rem;
+//     position: relative;
+//     z-index: 2;
+//     letter-spacing: -2px;
+//   }
+
+//   .bottom {
+//     display: block;
+//     font-size: 5.5rem;
+//     margin-top: -2.3rem; // cria o efeito de sobreposição
+//     letter-spacing: -2px;
+//     z-index: 1;
+//     position: relative;
+//   }
+// }
+
+.logo-l {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12rem;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+
+  // cria o corte no topo esquerdo do "L"
+  clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%, 0% 25%);
+}
+
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #0b0b0b;
+
+  /* Efeito de luz suave */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+    circle at 55% 5%,
+    #5C748166 0%,
+    rgba(20, 16, 16, 0.924) 30%,
+    #0b0b0b 100%
+    );
+z-index: 0;
+
+  }
+
+  /* Garantir que o conteúdo fique acima do brilho */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
