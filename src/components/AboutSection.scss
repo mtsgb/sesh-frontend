@@ -53,10 +53,10 @@
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* desktop: 4 col */
-  gap: clamp(15px, 2vw, 30px);
+  gap: clamp(15px, 2vw, 10px);
   width: 100%;
   margin: 0;
-  padding: 0 clamp(10px, 8vw, 150px);
+  padding: 0 clamp(10px, 8vw, 100px);
 
   .card {
     /* Mantém todas as propriedades originais do card */
@@ -84,8 +84,9 @@
     h2 {
       font-size: clamp(0.7rem, 5vw, 2rem);
       font-weight: 600;
-      margin-top: clamp(0.5rem, 7vw, 3rem);
+      margin-top: clamp(0.5rem, 7vw, 10rem);
       margin-left: clamp(20px, 1vw, 10px);
+      line-height: 1.2;
     }
 
     p {
@@ -93,6 +94,8 @@
       color: #333;
       line-height: 1.5;
       margin-left: clamp(20px, 1.5vw, 10px);
+      margin-top: 0.5rem;
+      line-height: 1.2;
     }
 
     &.active {
@@ -104,10 +107,10 @@
 
     .card-image {
       position: absolute;
-      top: clamp(-150px, -6vw, 50px);
+      top: clamp(-150px, -10vw, 50px);
       left: 50%;
       transform: translateX(-50%);
-      width: clamp(40px, 8vw, 400px);
+      width: clamp(40px, 15vw, 400px);
       z-index: 10;
       pointer-events: none;
       opacity: 1;
