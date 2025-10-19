@@ -1,5 +1,8 @@
 import './AboutSection.scss'
 import tv from '../assets/stock_images/tv.png';
+import lupa from '../assets/stock_images/lupa.png';
+import relogio from '../assets/stock_images/relogio.png';
+import alto from '../assets/stock_images/alto-falante.png';
 import { useState } from "react";
 
 const cards = [
@@ -8,6 +11,7 @@ const cards = [
     title: "Social Media Management",
     description:
       "Planejamento de conteúdo, otimização de perfil e engajamento.",
+    image: relogio,
   },
   {
     id: 2,
@@ -21,15 +25,17 @@ const cards = [
     title: "Análise & Brand Growth",
     description:
       "Relatórios mensais, insights de performance, análise de concorrentes e estratégias.",
+    image: lupa,
   },
   {
     id: 4,
     title: "Anúncios Direcionados",
     description:
       "Facebook e Google Ads, audiência direcionada, testes A/B e otimização de verba.",
+    image: alto,
   },
 ];
-
+  
 export default function AboutSection() {
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
 
@@ -54,7 +60,6 @@ export default function AboutSection() {
             <h2>{card.title}</h2>
             <p>{card.description}</p>
 
-            {/* imagem aparece apenas se for o card ativo e tiver imagem */}
             {selectedCard === card.id && card.image && (
               <img src={card.image} alt={card.title} className="card-image" />
             )}

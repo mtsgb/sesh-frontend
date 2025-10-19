@@ -1,10 +1,10 @@
-#about-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+.about-section {
   background-color: #0b0b0b;
+  color: #fff;
+  padding: 80px 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  min-height: 100vh;
 
   /* Efeito de luz suave (Soft light effect) */
   &::before {
@@ -50,23 +50,11 @@ z-index: 0;
   }
 }
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); // 4 colunas no desktop
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr); // 2x2 no tablet e mobile
     gap: 20px;
@@ -80,16 +68,51 @@ z-index: 0;
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); // 4 colunas no desktop
   gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+  width: 100vw;       // largura total da tela
+  margin: 0;          // remove centralização
+  padding: 0 150px;    // mantém um pequeno espaçamento nas laterais
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .card {
+    border-radius: 30px;
+    transition: border-radius 0.3s ease;
+
+    &:nth-child(1) {
+      border-top-left-radius: 100px;
+    }
+
+    &:nth-child(4) {
+      border-top-right-radius: 100px;
+    }
+    
+@media (max-width: 768px) {
+  grid-template-columns: repeat(2, 1fr); // 2 colunas no mobile
+  padding: 0 20px; // reduz o padding lateral no mobile
+    // apenas no mobile
+    &:nth-child(2) {
+      border-radius: 30px; // mantém o padrão em geral
+      border-top-right-radius: 100px; // só muda essa ponta
+    }
+  
+    &:nth-child(1) {
+      border-top-left-radius: 100px;
+    }
+
+    &:nth-child(2n) {
+      border-top-right-radius: 100px;
+    }
+
+    &:nth-last-child(1) {
+      border-bottom-right-radius: 100px;
+      border-top-right-radius: 30px; // só muda essa ponta
+    }
+
+    &:nth-last-child(2) {
+      border-bottom-left-radius: 100px;
+    }
   }
+}
 }
 
 .card {
@@ -97,28 +120,23 @@ z-index: 0;
   background-color: #ffffff;
   color: #000;
   border-radius: 30px;
-  padding: 40px 30px;
+  padding: 2rem 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-align: end;
+  text-align: left;
   overflow: visible; // importante! permite que a imagem “vaze” visualmente pra fora
 
-  h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    font-size: 20px;
+ h2 {
+    font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-top: 3rem; // mantém distância da imagem
+    margin-bottom: 1rem; // espaço para o parágrafo
   }
 
   p {
-    font-size: 14px;
+    font-size: 1rem;
     color: #333;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   &.active {
@@ -136,14 +154,13 @@ z-index: 0;
     top: -60px; // sobe um pouco
     left: 50%;
     transform: translateX(-50%);
-    width: 160px;
+    width: 150px;
     z-index: 10; // sobrepõe o conteúdo do card
     pointer-events: none; // não bloqueia cliques
-    opacity: 0;
+    opacity: 1;
     animation: fadeIn 0.4s ease forwards;
   }
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -155,3 +172,13 @@ z-index: 0;
   }
 }
 
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card.left,
+  .card.right {
+    border-radius: 20px; // bordas menores no mobile
+  }
+}
