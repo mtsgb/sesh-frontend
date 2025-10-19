@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import './ContactSection.scss';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Nome deve ter no mínimo 2 caracteres"),
@@ -83,7 +84,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-muted/30">
+    <section id="contact-section" className="py-20 md:py-32 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"

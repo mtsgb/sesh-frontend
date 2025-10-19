@@ -20,8 +20,8 @@ export default function Header() {
   };
 
   const menuItems = [
-    { label: "Quem somos", id: "about" },
-    { label: "Nossos Cases", id: "works" },
+    { label: "Quem somos", id: "about-section" },
+    { label: "Nossos Cases", id: "works-section" },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function Header() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="text-[20px] uppercase tracking-wide hover:text-[#7aa8ff] transition-colors"
+              className="text-[20px] tracking-wide hover:text-[#7aa8ff] transition-colors"
             >
               {item.label}
             </button>
@@ -57,21 +57,25 @@ export default function Header() {
 
           {/* Botões sociais */}
           <div className="hidden md:flex items-center gap-3">
-            
+                    
+              <Button
+            size="icon"
+            className="rounded-full bg-white border border-gray-500 hover:bg-gray-400 cursor-pointer"
+            onClick={() => window.location.href = 'mailto:contato@empresa.com'}
+          >
+            <Mail className="h-5 w-5 text-black" />
+          </Button>
+
+
             <Button
               size="icon"
-              className="rounded-full bg-white border border-gray-500 hover:bg-gray-400" 
-            >
-              <Mail className="h-5 w-5 text-black" />
-            </Button>
-            <Button
-              size="icon"
-              className="rounded-full bg-white border border-gray-500 hover:bg-gray-400" 
+              className="rounded-full bg-white border border-gray-500 hover:bg-gray-400 cursor-pointer"
+              onClick={() => window.open('https://www.instagram.com/media.sesh', '_blank')}
             >
               <Instagram className="h-5 w-5 text-black" />
             </Button>
             <Button
-              className="rounded-full border border-gray-500 hover:bg-gray-400 flex items-center gap-2 px-4 text-black bg-white"
+              className="rounded-full border border-gray-500 hover:bg-gray-400 flex items-center gap-2 px-4 text-black bg-white cursor-pointer"
             >
               Contate-nos
               <span className="flex items-center justify-center w-7 h-7 rounded-full bg-black">

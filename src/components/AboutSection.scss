@@ -1,0 +1,157 @@
+#about-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #0b0b0b;
+
+  /* Efeito de luz suave (Soft light effect) */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+    circle at 60% 0.5%,
+    #5C748166 10%,
+    rgba(20, 16, 16, 0.924) 30%,
+    #0b0b0b 100%
+    );
+    opacity: 1;
+z-index: 0;
+
+  }
+
+  /* Garantir que o conteúdo fique acima do brilho */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.agency-section {
+  background-color: #0e0e0e;
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.agency-title {
+  font-size: 56px;
+  font-weight: 275;
+  font-style: italic;
+  line-height: 100%;
+  margin-bottom: 80px;
+
+  .highlight {
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // 4 colunas no desktop
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); // 2x2 no tablet e mobile
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr); // mantém 2x2 em telas pequenas
+    padding: 0 20px;
+  }
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+.card {
+  position: relative; // necessário para que a imagem absoluta fique dentro do card
+  background-color: #ffffff;
+  color: #000;
+  border-radius: 30px;
+  padding: 40px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: end;
+  overflow: visible; // importante! permite que a imagem “vaze” visualmente pra fora
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  &.active {
+    background-color: #3d5662;
+    color: #fff;
+
+    h2,
+    p {
+      color: #fff;
+    }
+  }
+
+  .card-image {
+    position: absolute;
+    top: -60px; // sobe um pouco
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    z-index: 10; // sobrepõe o conteúdo do card
+    pointer-events: none; // não bloqueia cliques
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 // import work2 from "@assets/stock_images/modern_web_design_pr_855057ce.jpg";
 // import work3 from "@assets/stock_images/modern_web_design_pr_73d363ce.jpg";
 import { motion } from "framer-motion";
-
+import './WorksSection.scss';
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
@@ -51,7 +51,7 @@ export default function WorksSection() {
   ];
 
   return (
-    <section id="works" className="py-20 md:py-32 bg-muted/30">
+    <section id="works-section" className="py-20 md:py-32 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"

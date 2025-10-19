@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
+import './ClientSection.scss';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -47,7 +48,7 @@ export default function ClientsSection() {
   ];
 
   return (
-    <section id="clients" className="py-20 md:py-32">
+    <section id="client-section" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
