@@ -7,7 +7,7 @@ import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#101010]">
       <Header />
       <main>
         <HeroSection />
@@ -16,7 +16,6 @@ export default function Home() {
         <ClientsSection />
         <ContactSection />
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }

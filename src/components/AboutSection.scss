@@ -1,0 +1,165 @@
+.agency-section {
+  // background-color: #0e0e0e;
+  color: white;
+  padding: clamp(40px, 6vw, 80px) 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.agency-title {
+  font-size: clamp(24px, 5vw, 56px);
+  font-weight: 275;
+  font-style: italic;
+  line-height: 100%;
+  margin-bottom: clamp(40px, 6vw, 80px);
+
+  .highlight {
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+
+/* === CARDS GRID - desktop 4 col / tablet 2 col === */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* desktop: 4 col */
+  gap: clamp(15px, 2vw, 10px);
+  width: 100%;
+  margin: 0;
+  padding: 0 clamp(10px, 8vw, 100px);
+
+  .card {
+    /* Mantém todas as propriedades originais do card */
+    position: relative;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 30px;
+    transition: border-radius 0.3s ease, transform 0.3s ease, background-color 0.25s ease;
+    padding: clamp(1rem, 2vw, 2rem) clamp(0.2rem, 2vw, 1.5rem);
+    cursor: pointer;
+    text-align: left;
+    overflow: visible;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    /* Cantos maiores por posição (desktop) */
+    &:nth-child(1) { border-top-left-radius: 100px; }
+    &:nth-child(2) { /* top center-left — mantém padrão */ }
+    &:nth-child(3) { /* bottom center-left — mantém padrão */ }
+    &:nth-child(4) { border-top-right-radius: 100px; }
+
+    h2 {
+      font-size: clamp(0.7rem, 5vw, 2rem);
+      font-weight: 600;
+      margin-top: clamp(0.5rem, 7vw, 10rem);
+      margin-left: clamp(20px, 1vw, 10px);
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: clamp(0.6rem, 1vw, 1rem);
+      color: #333;
+      line-height: 1.5;
+      margin-left: clamp(20px, 1.5vw, 10px);
+      margin-top: 0.5rem;
+      line-height: 1.2;
+    }
+
+    &.active {
+      background-color: #3d5662;
+      color: #fff;
+
+      h2, p { color: #fff; }
+    }
+
+    .card-image {
+      position: absolute;
+      top: clamp(-100px, -5vw, 50px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(40px, 15vw, 200px);
+      z-index: 10;
+      pointer-events: none;
+      opacity: 1;
+      animation: fadeIn 0.4s ease forwards;
+    }
+  } /* .card */
+} /* .cards-grid */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -40px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ===== CELULAR: força 2x2 (até 768px) e ajusta cantos para formar as quinas do grid 2x2 ===== */
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr); /* força 2 colunas = 2x2 quando houver 4 items */
+    padding: 0 20px;
+    gap: clamp(10px, 3vw, 20px);
+  }
+
+  .card {
+    border-radius: clamp(16px, 3vw, 30px); /* mantém arredondamento proporcional */
+
+    /* Ajuste de cantos para que a grade 2x2 forme quinas visíveis:
+       - item 1: canto superior esquerdo
+       - item 2: canto superior direito
+       - item 3: canto inferior esquerdo
+       - item 4: canto inferior direito
+    */
+    &:nth-child(1) {
+      border-top-left-radius: clamp(70px, 12vw, 90px) !important;
+      border-top-right-radius: clamp(10px, 6vw, 30px) !important;
+      border-bottom-left-radius: clamp(10px, 6vw, 30px) !important;
+      border-bottom-right-radius: clamp(30px, 2vw, 30px) !important;
+    }
+
+    &:nth-child(2) {
+      border-top-right-radius: clamp(70px, 12vw, 100px) !important;
+      border-top-left-radius: clamp(30px, 6vw, 30px) !important;
+      border-bottom-right-radius: clamp(30px, 6vw, 30px) !important;
+      border-bottom-left-radius: clamp(30px, 4vw, 30px) !important;
+    }
+
+    &:nth-child(3) {
+      border-bottom-left-radius: clamp(70px, 12vw, 30px) !important;
+      border-top-left-radius: clamp(10px, 6vw, 100px) !important;
+      border-bottom-right-radius: clamp(10px, 6vw, 30px) !important;
+      border-top-right-radius: clamp(8px, 4vw, 30px) !important;
+    }
+
+    &:nth-child(4) {
+      border-bottom-right-radius: clamp(70px, 12vw, 100px) !important;
+      border-top-right-radius: clamp(30px, 6vw, 30px) !important;
+      border-bottom-left-radius: clamp(30px, 30px, 30px) !important;
+      border-top-left-radius: clamp(30px, 100px, 30px) !important;
+    }
+  }
+}
+
+/* ===== MOBILE: comportamento bem definido (até 480px) ===== */
+// @media (max-width: 480px) {
+//   .cards-grid {
+//     grid-template-columns: repeat(1, 1fr) !important; /* opcional: 1x4 para mobile — altere para repeat(2,1fr) se preferir 2x2 */
+//     padding: 0 12px;
+//     gap: 12px;
+//   }
+
+//   .card {
+//     /* Escolha A: cards SEM borda (quadrados) - descomente a linha abaixo para ativar */
+//     /* border-radius: 0 !important; */
+
+//     /* Escolha B: manter um pequeno raio para suavizar — atualmente definido assim: */
+//     border-radius: 12px !important;
+
+//     /* Se quiser forçar cantos individuais em 1x4, remova !important e ajuste nth-child como preferir */
+//     &:nth-child(2n),
+//     &:nth-child(3) {
+//       /* mantém o padrão, sem sobrescrita específica */
+//     }
+//   }
+// }
