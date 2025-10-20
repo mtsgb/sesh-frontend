@@ -1,19 +1,9 @@
-body {
-  overflow: hidden;
-  background-color: #101010;
-}
-
+/* Fundo global */
 html, body, #root {
   height: 100%;
   width: 100%;
-}
-
-/* Logo */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .logo:hover {

@@ -44,10 +44,10 @@ export default function AboutSection() {
   };
 
  return (
-    <section className="agency-section">
+    <section className="agency-section" id='about-section'>
       <h1 className="agency-title">
-        Somos a <span className="highlight">agência</span> da{" "}
-        <span className="highlight">nova geração</span>
+        Somos a <span className="highlight">agência</span> <br />
+        da <span className="highlight">nova geração</span>
       </h1>
 
       <div className="cards-grid">
