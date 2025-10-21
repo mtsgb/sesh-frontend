@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SeshLogo from "@/assets/icons/SeshLogo"
 import { Menu, X, Instagram, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "./Header.scss";
@@ -26,60 +27,66 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "backdrop-blur-md bg-[#0f0f0f]/80 border-b border-[#222]" : "bg-transparent"
-      } text-white`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-md bg-[#0f0f0f]/80 border-b border-[#222]" : "bg-transparent"
+        } text-white`}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w mx-auto px-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("hero")}
             className="text-3xl font-bold tracking-tight"
           >
-            <span className="text-white">Let’s</span>
-            <span className="text-[#7aa8ff]"> Sesh</span>
+            <SeshLogo width={81} height={65} color="#FFFFFF" />
           </button>
 
           {/* Menu desktop */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 md:ml-auto md:mr-32">
             {menuItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="text-[20px] tracking-wide hover:text-[#7aa8ff] transition-colors"
-            >
-              {item.label}
-            </button>
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-[20px] tracking-wide font-thin text-white/70 hover:text-white transition-all duration-300 ease-in-out"
+              >
+                {item.label}
+              </button>
 
             ))}
           </nav>
 
           {/* Botões sociais */}
           <div className="hidden md:flex items-center gap-3">
-                    
-              <Button
-            size="icon"
-            className="rounded-full bg-white border border-gray-500 hover:bg-gray-400 cursor-pointer"
-            onClick={() => window.location.href = 'mailto:contato@empresa.com'}
-          >
-            <Mail className="h-5 w-5 text-black" />
-          </Button>
-
 
             <Button
               size="icon"
-              className="rounded-full bg-white border border-gray-500 hover:bg-gray-400 cursor-pointer"
+              className="group h-10 w-10 rounded-full bg-button-contact border border-gray-500 
+             hover:bg-accent cursor-pointer transition-colors duration-200"
+              onClick={() => window.location.href = 'mailto:larissabranches@letssesh.com.br'}
+            >
+              <Mail className="!h-6 !w-6 text-black group-hover:text-white transition-colors duration-200" />
+            </Button>
+
+            <Button
+              size="icon"
+              className="group h-10 w-10 rounded-xl bg-button-contact border border-gray-500 
+               hover:bg-accent cursor-pointer transition-colors duration-200"
               onClick={() => window.open('https://www.instagram.com/media.sesh', '_blank')}
             >
-              <Instagram className="h-5 w-5 text-black" />
+              <Instagram className="!h-6 !w-6 text-black group-hover:text-white transition-colors duration-200" />
             </Button>
+
             <Button
-              className="rounded-full border border-gray-500 hover:bg-gray-400 flex items-center gap-2 px-4 text-black bg-white cursor-pointer"
+              className="group rounded-full border border-gray-500 hover:bg-accent 
+               flex items-center !gap-2 !px-1 !pl-4 pt-1 pb-1
+               text-[#161616] text-base font-thin bg-button-contact cursor-pointer
+               transition-colors duration-200"
             >
-              Contate-nos
-              <span className="flex items-center justify-center w-7 h-7 rounded-full bg-black">
-                <Phone className="h-4 w-4 text-white fill-white" />
+              <span className="transition-colors duration-200 group-hover:text-white">
+                Contate-nos
+              </span>
+              <span className="group flex items-center justify-center w-8 h-8 rounded-full bg-black 
+                     group-hover:bg-white transition-colors duration-200">
+                <Phone className="h-4 w-4 text-white group-hover:text-black transition-colors duration-200" />
               </span>
             </Button>
           </div>
