@@ -6,6 +6,26 @@
   overflow: hidden;
   background-color: #101010;
 
+  .hero-container {
+  display: flex;
+  flex-direction: row; // Desktop: lado a lado
+  align-items: center;
+  gap: 2.5rem; // Espaçamento entre texto e imagem
+
+  .text-section,
+  .image-section {
+    flex: 1;
+  }
+
+  @media (max-width: 1024px) { // Mobile e tablet
+    flex-direction: column; // Texto em cima, imagem embaixo
+    .text-section,
+    .image-section {
+      width: 100%; // Cada um ocupa 100% da largura
+    }
+  }
+}
+
   // /* Efeito de luz suave (Soft light effect) */
   // &::before {
   //   content: "";
