@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SeshLogo from "@/assets/icons/SeshLogo"
 import { Menu, X, Instagram, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import WppIcon from "@/assets/icons/WppIcon";
 import "./Header.scss";
 
 export default function Header() {
@@ -77,17 +78,17 @@ export default function Header() {
 
             <Button
               className="group rounded-full border border-gray-500 hover:bg-accent 
-               flex items-center !gap-2 !px-1 !pl-4 pt-1 pb-1
-               text-[#161616] text-base font-thin bg-button-contact cursor-pointer
-               transition-colors duration-200"
+             flex items-center gap-2 px-4 py-1
+             text-[#161616] text-base font-thin bg-button-contact cursor-pointer
+             transition-colors duration-200"
             >
               <span className="transition-colors duration-200 group-hover:text-white">
                 Contate-nos
               </span>
-              <span className="group flex items-center justify-center w-8 h-8 rounded-full bg-black 
-                     group-hover:bg-white transition-colors duration-200">
-                <Phone className="h-4 w-4 text-white group-hover:text-black transition-colors duration-200" />
-              </span>
+              <WppIcon
+                className="!h-8 !w-6 text-black group-hover:text-white transition-colors duration-200"
+                color="currentColor"
+              />
             </Button>
           </div>
 

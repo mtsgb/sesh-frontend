@@ -1,112 +1,78 @@
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import * as Separator from "@radix-ui/react-separator";
+import SeshLogo from "@/assets/icons/SeshLogo";
+import WppIcon from "@/assets/icons/WppIcon";
+import InstagramIcon from "@/assets/icons/InstagramIcon";
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const links = {
-    empresa: [
-      { label: "Quem Somos", id: "about" },
-      { label: "Trabalhos", id: "works" },
-      { label: "Clientes", id: "clients" },
-    ],
-    contato: [
-      { label: "Entre em Contato", id: "contact" },
-      { label: "contato@nossaempresa.com", href: "mailto:contato@nossaempresa.com" },
-      { label: "+55 11 9999-9999", href: "tel:+5511999999999" },
-    ],
-  };
-
-  const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-  ];
-
   return (
-    <footer className="border-t bg-card">
-      <div className=" mx-auto px-6 py-12">
-        <div className="">
-          <div>
-            <h3 className="font-bold text-lg mb-4">Nossa Empresa</h3>
-            <p className="text-muted-foreground text-sm">
-              Transformando ideias em soluções digitais excepcionais desde 2020.
-            </p>
-          </div>
+    <footer className="bg-background text-text-primary">
+     
+<div className="w-full bg-white rounded-3xl shadow-lg px-4 py-4 md:px-8 md:py-8 flex flex-col items-center">
+  {/* Título centralizado */}
+  <h1 className="text-3xl sm:text-4xl md:text-7xl text-text-dark font-light text-center">
+    LET’S WORK <span className="font-bold">TOGETHER!</span>
+  </h1>
 
-          <div>
-            <h4 className="font-semibold mb-4">Empresa</h4>
-            <ul className="space-y-2">
-              {links.empresa.map((link, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                    data-testid={`footer-link-${link.id}`}
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+  {/* Parágrafo + botão lado a lado */}
+  <div className="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+  <p className="text-gray-700 text-center sm:text-left text-sm sm:text-base">
+    Mande um “Oi” pra gente!{' '}<br className="block sm:hidden" />
+    Nós ficaremos felizes em ajudar sua marca a crescer!
+  </p>
+    <button
+      className="bg-black text-white rounded-full px-4 py-2 text-sm sm:text-base font-medium hover:bg-accent transition-colors duration-200"
+      onClick={() => window.location.href = 'mailto:larissabranches@letssesh.com.br'}
+    >
+      larissabranches@letssesh.com.br
+    </button>
+  </div>
+</div>
 
-          <div>
-            <h4 className="font-semibold mb-4">Contato</h4>
-            <ul className="space-y-2">
-              {links.contato.map((link, index) => (
-                <li key={index}>
-                  {link.href ? (
-                    <a
-                      href={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                      data-testid={`footer-contact-${index}`}
-                    >
-                      {link.label}
-                    </a>
-                  ) : link.id ? (
-                    <button
-                      onClick={() => scrollToSection(link.id!)}
-                      className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                      data-testid={`footer-link-${link.id}`}
-                    >
-                      {link.label}
-                    </button>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          <div>
-            <h4 className="font-semibold mb-4">Redes Sociais</h4>
-            <div className="flex gap-2">
-              {socialLinks.map((social, index) => (
-                <Button
-                  key={index}
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  data-testid={`button-social-${social.label.toLowerCase()}`}
-                >
-                  <a href={social.href} aria-label={social.label}>
-                    <social.icon className="h-5 w-5" />
-                  </a>
-                </Button>
-              ))}
-            </div>
+
+
+      <div className="mx-auto px-6 py-12 flex flex-col items-center">
+        <div className="w-[calc(100%-6rem)] flex items-end justify-between mb-4">
+          {/* Logo */}
+          <SeshLogo width={81} height={65} color="#FFFFFF" />
+
+          {/* Ícones */}
+          <div className="flex items-end space-x-4">
+            {/* Instagram */}
+            <Button
+              size="icon"
+              className="group h-10 w-1 border-none cursor-pointer"
+              onClick={() =>
+                window.open("https://www.instagram.com/media.sesh", "_blank")
+              }
+              aria-label="Instagram"
+            >
+              <InstagramIcon
+                className="!h-6 !w-6"
+              />
+            </Button>
+
+            <span className="group flex items-center justify-center w-10 h-10  cursor-pointer">
+              <WppIcon
+                className="!h-6 !w-6"
+                color="white"
+              />
+            </span>
           </div>
         </div>
 
-        <div className="border-t pt-8">
-          <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Nossa Empresa. Todos os direitos reservados.
+        {/* Separator menor, centralizado */}
+        <Separator.Root
+          className="w-[calc(100%-6rem)] h-px bg-gray-300 my-0 mx-auto"
+          decorative
+        />
+
+        {/* Copyright */}
+        <div className="mt-3 w-[calc(100%-6rem)] text-center">
+          <p className="text-sm text-text-primary">
+            Copyright © {new Date().getFullYear()} – Let’s Sesh – All rights reserved
           </p>
         </div>
       </div>
