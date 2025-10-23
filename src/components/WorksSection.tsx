@@ -15,7 +15,7 @@ export default function WorksSection() {
         <img
           src={hcine}
           alt="Human Brand"
-          className="w-full h-auto rounded-md shadow-lg" 
+          className="w-full h-auto rounded-md" 
         />
       </div>
   
@@ -57,7 +57,6 @@ export default function WorksSection() {
 
   </div>
 </section>
-
 
   );
 }
