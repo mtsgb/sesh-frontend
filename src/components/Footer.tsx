@@ -1,4 +1,3 @@
-import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import * as Separator from "@radix-ui/react-separator";
 import SeshLogo from "@/assets/icons/SeshLogo";

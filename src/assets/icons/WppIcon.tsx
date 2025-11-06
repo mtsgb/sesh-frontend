@@ -8,8 +8,6 @@ interface SvgLogoProps {
 }
 
 const WppIcon: React.FC<SvgLogoProps> = ({
-  width = 40,
-  height = 40,
   color = "white",
   className,
 }) => {

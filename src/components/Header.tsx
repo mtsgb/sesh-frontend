@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SeshLogo from "@/assets/icons/SeshLogo"
-import { Menu, X, Instagram, Mail, Phone } from "lucide-react";
+import { Menu, X, Instagram, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import WppIcon from "@/assets/icons/WppIcon";
 import "./Header.scss";

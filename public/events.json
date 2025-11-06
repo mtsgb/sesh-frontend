@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Festival X",
+    "date": "Janeiro, 2024 – Manaus, AM",
+    "image": "/images/festival.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Maratona BSX",
+    "date": "Junho, 2025 – Manaus, AM",
+    "image": "/images/maratona.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Motocross MonsterX",
+    "date": "Maio, 2025 – São Paulo, SP",
+    "image": "/images/motocross.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Campeonato Amazonense Sub-18",
+    "date": "Jan 24 até Dez 24 – Manaus, AM",
+    "image": "/images/sub18.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Convenção Grow de Startups",
+    "date": "Fevereiro, 2024 – Manaus, AM",
+    "image": "/images/convecao.jpg"
+  }
+]
