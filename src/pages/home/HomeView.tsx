@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import EventsGridView from "@/components/cardLayout/EventsGridView";
 import ClientsSection from "@/components/ClientsSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -14,6 +15,7 @@ export default function Home() {
         <AboutSection />
         <WorksSection />
         <ClientsSection />
+        <EventsGridView />
         <Footer />
       </main>
     </div>
